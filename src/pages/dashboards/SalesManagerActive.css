@@ -1,0 +1,574 @@
+/* ─── Professional Theme Enhancements ─────────────────────────── */
+
+.professional-theme {
+  padding: 1.5rem 2rem;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Header */
+.dashboard-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+}
+
+.header-meta h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-bright);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.breadcrumb .active {
+  color: var(--accent);
+}
+
+.add-booking-btn-premium {
+  background: linear-gradient(135deg, var(--accent) 0%, #ff8c66 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(230, 98, 57, 0.3);
+}
+
+.add-booking-btn-premium:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(230, 98, 57, 0.4);
+}
+
+/* Metrics Row */
+.metrics-summary-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.metric-box {
+  padding: 1.25rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.metric-box:hover {
+  border-color: var(--accent);
+  background: var(--bg-hover);
+}
+
+.metric-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.metric-icon.bookings { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.metric-icon.delivered { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.metric-icon.active { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.metric-icon.conversion { background: rgba(230, 98, 57, 0.1); color: var(--accent); }
+
+.metric-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-bright);
+}
+
+/* Split Content */
+.dashboard-content-split {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-header h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin: 0;
+}
+
+/* Team Widgets */
+.sm-team-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.sm-team-widget {
+  padding: 1.25rem;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sm-team-widget:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.widget-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.widget-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.widget-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.leader-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-bright);
+}
+
+.leader-role {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+.widget-arrow {
+  margin-left: auto;
+  color: var(--text-dim);
+  opacity: 0.5;
+}
+
+.widget-stats {
+  display: flex;
+  justify-content: space-around;
+  background: var(--bg-hover);
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.w-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.w-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.w-val {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-bright);
+}
+
+.w-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
+
+.widget-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.progress-track {
+  height: 6px;
+  background: var(--bg-hover);
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* ─── Active Deals Modal & Tables ─────────────────────────── */
+.sm-active-modal {
+  max-width: 960px !important;
+  width: 100% !important;
+}
+
+.sm-grand-banner {
+  display: flex;
+  align-items: center;
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem 2rem;
+  margin-bottom: 2rem;
+  justify-content: space-around;
+}
+
+.sm-grand-stat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sm-grand-stat > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.sm-grand-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sm-grand-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-bright);
+  line-height: 1;
+}
+
+.sm-grand-divider {
+  width: 1px;
+  height: 44px;
+  background: var(--border);
+}
+
+.sm-team-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.sm-team-card {
+  padding: 1.5rem;
+  border-radius: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sm-team-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.sm-team-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.sm-team-card-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-bright);
+}
+
+.sm-team-card-role {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+.sm-team-card-stats {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.sm-team-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sm-team-stat-label {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.sm-team-stat-val {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-bright);
+}
+
+.sm-conv-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sm-conv-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.sm-conv-bar-track {
+  flex: 1;
+  height: 5px;
+  background: var(--bg-hover);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sm-conv-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.sm-conv-pct {
+  font-size: 0.78rem;
+  font-weight: 700;
+  min-width: 36px;
+  text-align: right;
+}
+
+.sm-se-team-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.sm-se-team-totals {
+  margin-left: auto;
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+
+.sm-se-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.sm-se-badge.booking { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.sm-se-badge.rto { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.sm-se-badge.total { background: rgba(230, 98, 57, 0.1); color: var(--accent); }
+
+.sm-inline-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 120px;
+}
+
+.sm-inline-bar-track {
+  flex: 1;
+  height: 5px;
+  background: var(--bg-hover);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.sm-inline-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sidebar Targets */
+.side-card {
+  padding: 1.5rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  position: sticky;
+  top: 2rem;
+}
+
+.sm-teams-target-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.sm-teams-target-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sm-teams-target-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+.sm-team-target-row-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.target-row-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.team-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.team-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-bright);
+}
+
+.team-count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.target-row-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bar-track {
+  flex: 1;
+  height: 4px;
+  background: var(--bg-hover);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.bar-pct {
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 34px;
+  text-align: right;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .dashboard-content-split {
+    grid-template-columns: 1fr;
+  }
+  .side-card {
+    position: static;
+  }
+  .metrics-summary-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .metrics-summary-row {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}

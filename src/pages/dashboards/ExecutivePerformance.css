@@ -1,0 +1,311 @@
+/* 
+  ExecutivePerformance.css
+  Antigravity (DealerGuard ERP) - Master Design Theme
+*/
+
+:root {
+  --brand-orange: #e87040;
+  --dark-header: #2c2c2c;
+  --ev-yellow-fill: #fffde7;
+  --ev-yellow-text: #7a6000;
+  --ev-yellow-header: #b8920a;
+  --highlight-fill: #fff8e6;
+  --highlight-text: #b36200;
+  --gt-orange: #e87040;
+  --gt-ev-orange: #c86a00;
+  --hover-row: #fff0e8;
+  --card-bg-light: #fff8f5;
+  --text-muted: #888;
+  --border-light: #e8e8e8;
+  --bg-page: #f5f5f5;
+}
+
+.ep-page-wrapper {
+  padding: 24px;
+  background-color: var(--bg-page);
+  min-height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ── Page Header ── */
+.ep-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.ep-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark-header);
+  margin: 0 0 4px;
+}
+
+.ep-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Overall Report Card ── */
+.ep-overall-card {
+  background-color: var(--card-bg-light);
+  border: 1.5px solid var(--brand-orange);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(232, 112, 64, 0.05);
+}
+
+.ep-overall-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-orange);
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.ep-stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+}
+
+.ep-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.ep-stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.ep-stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark-header);
+}
+
+/* ── Filter Tabs ── */
+.ep-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.ep-filter-tab {
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: white;
+  border: 1px solid var(--border-light);
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ep-filter-tab:hover {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange);
+}
+
+.ep-filter-tab.active {
+  background: var(--brand-orange);
+  color: white;
+  border-color: var(--brand-orange);
+}
+
+/* ── Data Table ── */
+.ep-table-container {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  overflow-x: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.ep-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.ep-table thead th {
+  background-color: var(--dark-header);
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* EV Column Header */
+.ep-table thead th.is-ev {
+  background-color: var(--ev-yellow-header);
+}
+
+.ep-table tbody td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  color: #333;
+  white-space: nowrap;
+}
+
+/* Sticky S.C Column */
+.ep-table th:first-child,
+.ep-table td:first-child {
+  position: sticky;
+  left: 0;
+  background: inherit;
+  z-index: 5;
+}
+
+.ep-table th:first-child { z-index: 11; }
+
+/* EV Cells */
+.ep-table td.is-ev {
+  background-color: var(--ev-yellow-fill);
+  color: var(--ev-yellow-text);
+  font-weight: 600;
+}
+
+/* Team Leader Highlight */
+.ep-row-highlight td {
+  background-color: var(--highlight-fill) !important;
+  color: var(--highlight-text) !important;
+  font-weight: 700;
+}
+
+.ep-row-highlight td:first-child {
+  border-left: 4px solid var(--brand-orange);
+}
+
+/* Grand Total Row */
+.ep-row-gt td {
+  background-color: var(--gt-orange) !important;
+  color: white !important;
+  font-weight: 800;
+  border-bottom: none;
+}
+
+.ep-row-gt td.is-ev {
+  background-color: var(--gt-ev-orange) !important;
+}
+
+.ep-table tbody tr:hover td {
+  background-color: var(--hover-row);
+}
+
+/* ── Actions ── */
+.ep-actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.ep-btn-print {
+  background: var(--dark-header);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.ep-btn-print:hover {
+  opacity: 0.9;
+}
+
+.ep-upload-wrapper {
+  margin-bottom: 24px;
+}
+
+.ep-upload-btn {
+  background: var(--brand-orange);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(232, 112, 64, 0.2);
+}
+
+/* ── Print Styles ── */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm;
+  }
+
+  body {
+    background: white;
+  }
+
+  .ep-filters, 
+  .ep-actions, 
+  .ep-upload-wrapper,
+  .sidebar,
+  .topbar {
+    display: none !important;
+  }
+
+  .ep-page-wrapper {
+    padding: 0;
+    background: white;
+  }
+
+  .ep-table-container {
+    border: none;
+    box-shadow: none;
+  }
+
+  .ep-table {
+    font-size: 9px;
+  }
+
+  .ep-table thead th {
+    background-color: #333 !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .ep-table td, .ep-table th {
+    padding: 5px 4px !important;
+    border: 1px solid #ddd !important;
+  }
+
+  .ep-overall-card {
+    border: 1px solid var(--brand-orange) !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .ep-row-highlight td {
+    background-color: var(--highlight-fill) !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .ep-row-gt td {
+    background-color: var(--gt-orange) !important;
+    -webkit-print-color-adjust: exact;
+  }
+}
