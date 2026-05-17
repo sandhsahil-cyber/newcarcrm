@@ -235,22 +235,22 @@ const InsuranceDepartment = () => {
 
       {/* Detailed Policy Processing Modal */}
       {showProcessModal && selectedLead && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80">
-          <div className="bg-gray-900 border border-gray-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl animate-scale-up">
-            <div className="p-6 border-b border-gray-800 flex justify-between items-center bg-gray-900/50">
-              <h2 className="text-xl font-bold text-white flex items-center gap-2">
+        <div className="insurance-modal-overlay" onClick={() => { setShowProcessModal(false); setSelectedLead(null); }}>
+          <div className="insurance-modal animate-scale-up" onClick={(e) => e.stopPropagation()}>
+            <div className="insurance-modal-header">
+              <h2 className="insurance-modal-title">
                 <Icons.FileText className="text-accent" />
                 Insurance Policy Processing Center
               </h2>
               <button
                 onClick={() => { setShowProcessModal(false); setSelectedLead(null); }}
-                className="p-2 hover:bg-gray-800 rounded-full text-gray-400 transition-colors"
+                className="insurance-modal-close"
               >
                 <Icons.X size={20} />
               </button>
             </div>
 
-            <div className="p-6 overflow-y-auto">
+            <div className="insurance-modal-body">
               <div className="insurance-detail-grid">
                 {/* Customer Details Section */}
                 <div className="detail-item">
@@ -271,7 +271,7 @@ const InsuranceDepartment = () => {
                 </div>
 
                 {/* Separator Heading */}
-                <div className="detail-item full-width" style={{ marginTop: '1rem', borderTop: '1px solid #2d3748', paddingTop: '1.25rem' }}>
+                <div className="detail-item full-width" style={{ marginTop: '1rem', borderTop: '1px solid #1e293b', paddingTop: '1.25rem' }}>
                   <h3 className="text-sm font-bold text-white uppercase tracking-wider">Policy Details</h3>
                 </div>
 
@@ -357,9 +357,9 @@ const InsuranceDepartment = () => {
               </div>
             </div>
 
-            <div className="p-6 border-t border-gray-800 bg-gray-900/50 flex justify-end gap-3 flex-wrap">
+            <div className="insurance-modal-footer">
               <button
-                className="px-6 py-2 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition-colors"
+                className="btn-secondary"
                 onClick={() => { setShowProcessModal(false); setSelectedLead(null); }}
               >
                 Close
@@ -368,13 +368,13 @@ const InsuranceDepartment = () => {
               {selectedLead.status !== 'Approved' && (
                 <>
                   <button
-                    className="px-6 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-500 transition-colors"
+                    className="btn-primary-blue"
                     onClick={() => handleUpdateStatus('In Review')}
                   >
                     Set In Review
                   </button>
                   <button
-                    className="px-6 py-2 rounded-lg bg-green-600 text-white hover:bg-green-500 transition-colors flex items-center gap-2"
+                    className="btn-primary-green"
                     onClick={handleIssuePolicy}
                   >
                     <Icons.CheckCircle2 size={18} />
