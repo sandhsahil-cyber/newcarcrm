@@ -14,10 +14,10 @@ const DocumentStorage = () => {
       vehicle: 'SUV XC90',
       deliveryDate: '2026-05-01',
       documents: [
-        { name: 'Aadhar Card', type: 'PDF', size: '1.2 MB', icon: 'FileText' },
-        { name: 'PAN Card', type: 'JPG', size: '0.8 MB', icon: 'Image' },
-        { name: 'Insurance Policy', type: 'PDF', size: '2.5 MB', icon: 'Shield' },
-        { name: 'Registration Certificate', type: 'PDF', size: '1.5 MB', icon: 'FileCheck' }
+        { name: 'Aadhar Card', type: 'PDF', size: '1.2 MB', icon: 'FileText', uploadedBy: 'Sales Executive' },
+        { name: 'PAN Card', type: 'JPG', size: '0.8 MB', icon: 'Image', uploadedBy: 'Sales Executive' },
+        { name: 'Insurance Policy', type: 'PDF', size: '2.5 MB', icon: 'Shield', uploadedBy: 'Insurance Department' },
+        { name: 'Registration Certificate', type: 'PDF', size: '1.5 MB', icon: 'FileCheck', uploadedBy: 'RTO Office' }
       ]
     },
     {
@@ -27,9 +27,10 @@ const DocumentStorage = () => {
       vehicle: 'Sedan S60',
       deliveryDate: '2026-04-28',
       documents: [
-        { name: 'Driving License', type: 'PDF', size: '1.1 MB', icon: 'IdCard' },
-        { name: 'Address Proof', type: 'PDF', size: '1.4 MB', icon: 'Home' },
-        { name: 'Sales Invoice', type: 'PDF', size: '3.2 MB', icon: 'Receipt' }
+        { name: 'Driving License', type: 'PDF', size: '1.1 MB', icon: 'IdCard', uploadedBy: 'Sales Executive' },
+        { name: 'Address Proof', type: 'PDF', size: '1.4 MB', icon: 'Home', uploadedBy: 'Sales Executive' },
+        { name: 'Sales Invoice', type: 'PDF', size: '3.2 MB', icon: 'Receipt', uploadedBy: 'Finance Department' },
+        { name: 'Insurance Policy Document', type: 'PDF', size: '2.8 MB', icon: 'Shield', uploadedBy: 'Insurance Department' }
       ]
     }
   ];
@@ -109,7 +110,14 @@ const DocumentStorage = () => {
                         </div>
                         <div className="doc-details">
                           <span className="doc-name">{doc.name}</span>
-                          <span className="doc-meta">{doc.type} • {doc.size}</span>
+                          <span className="doc-meta">
+                            <span>{doc.type} • {doc.size}</span>
+                            {doc.uploadedBy && (
+                              <span className="doc-uploader-badge">
+                                Uploaded by: {doc.uploadedBy}
+                              </span>
+                            )}
+                          </span>
                         </div>
                         <div className="doc-actions">
                           <button className="doc-action-btn whatsapp" title="Share via WhatsApp" onClick={() => handleWhatsAppShare(customer.name, doc.name)}>
