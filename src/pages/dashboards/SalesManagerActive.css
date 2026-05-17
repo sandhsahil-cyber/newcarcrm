@@ -741,7 +741,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .metrics-summary-row {
     grid-template-columns: 1fr;
   }
@@ -754,6 +754,125 @@
   .sm-premium-overlay {
     backdrop-filter: none !important;
     background: rgba(15, 23, 42, 0.95) !important;
-    padding: 1rem !important;
+    padding: 1rem 0.5rem !important;
+    align-items: flex-start !important;
+    overflow-y: auto !important;
+  }
+
+  .sm-premium-modal {
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    border-radius: 16px !important;
+  }
+
+  .sm-premium-modal .modal-header {
+    padding: 1.25rem 1.5rem !important;
+  }
+
+  .sm-premium-modal .header-title h2 {
+    font-size: 1.2rem !important;
+  }
+
+  .sm-premium-modal .sm-grand-banner,
+  .sm-premium-modal .sm-team-cards-grid,
+  .sm-premium-modal .sm-se-team-banner,
+  .sm-premium-modal .leads-list {
+    margin: 1rem 1.25rem !important;
+  }
+
+  .sm-grand-banner {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start !important;
+    padding: 1.25rem 1.5rem !important;
+  }
+
+  .sm-grand-divider {
+    width: 100% !important;
+    height: 1px !important;
+  }
+
+  .sm-se-team-banner {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+    padding: 1.25rem 1.5rem !important;
+  }
+
+  .sm-se-team-totals {
+    margin-left: 0 !important;
+    width: 100% !important;
+    flex-direction: column;
+    gap: 0.5rem !important;
+    padding: 0.75rem 1rem !important;
+  }
+
+  .sm-team-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Responsive Stacked Cards Table */
+  .premium-table thead {
+    display: none !important;
+  }
+  
+  .premium-table, 
+  .premium-table tbody, 
+  .premium-table tr, 
+  .premium-table td {
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  .premium-table tr {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 1rem;
+    background: #ffffff;
+  }
+  
+  .premium-table tr:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .premium-table td {
+    text-align: right !important;
+    padding: 0.75rem 1rem !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    position: relative !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  .premium-table td:last-child {
+    border-bottom: none !important;
+  }
+  
+  .premium-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #64748b;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .premium-table td:nth-child(2) {
+    text-align: right !important;
+  }
+  
+  .customer-cell {
+    justify-content: flex-end;
+  }
+  
+  .sm-inline-bar {
+    justify-content: flex-end;
+    min-width: unset !important;
+    flex: 1;
+    max-width: 160px;
   }
 }
+

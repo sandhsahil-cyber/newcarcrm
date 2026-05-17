@@ -483,8 +483,8 @@ const SalesManager = () => {
                         const pct = Math.round((m.rtoDelivered / (m.bookings || 1)) * 100);
                         return (
                           <tr key={m.name}>
-                            <td className="booking-id">{idx + 1}</td>
-                            <td>
+                            <td data-label="#" className="booking-id">{idx + 1}</td>
+                            <td data-label="Sales Executive">
                               <div className="customer-cell">
                                 <div className="avatar-sm" style={{ background: selectedTeam.color + '22', color: selectedTeam.color }}>
                                   {m.name.charAt(0)}
@@ -492,18 +492,18 @@ const SalesManager = () => {
                                 <span>{m.name}</span>
                               </div>
                             </td>
-                            <td>
+                            <td data-label="Bookings">
                               <span className="sm-se-badge booking">{m.bookings}</span>
                             </td>
-                            <td>
+                            <td data-label="RTO Delivered">
                               <span className="sm-se-badge rto">{m.rtoDelivered}</span>
                             </td>
-                            <td>
+                            <td data-label="Total Active">
                               <span className="sm-se-badge total" style={{ background: selectedTeam.color + '22', color: selectedTeam.color }}>
                                 {total}
                               </span>
                             </td>
-                            <td>
+                            <td data-label="Delivery Rate">
                               <div className="sm-inline-bar">
                                 <div className="sm-inline-bar-track">
                                   <div className="sm-inline-bar-fill" style={{ width: `${pct}%`, background: selectedTeam.color }} />
