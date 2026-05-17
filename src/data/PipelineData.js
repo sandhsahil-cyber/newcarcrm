@@ -63,6 +63,33 @@ export const PIPELINE_LEADS = [
       remark: 'Charging to 100% completed'
     }
   },
+  { id: 'LD-1014', name: 'Anil Ambani', vehicle: 'SUV XC90', status: 'Pending', date: '2026-05-16', salesman: 'Amit Sharma', team: 'Gamma', department: 'insurance',
+    insuranceDetails: {
+      insurer: 'Tata AIG',
+      policyType: 'Comprehensive',
+      premiumAmount: '68,500',
+      policyNumber: '',
+      term: '1 Year'
+    }
+  },
+  { id: 'LD-1015', name: 'Rajesh Patel', vehicle: 'Sedan S60', status: 'In Review', date: '2026-05-15', salesman: 'Anjali G.', team: 'Alpha', department: 'insurance',
+    insuranceDetails: {
+      insurer: 'HDFC Ergo',
+      policyType: 'Comprehensive',
+      premiumAmount: '42,000',
+      policyNumber: 'POL-HDFC-9921',
+      term: '1 Year'
+    }
+  },
+  { id: 'LD-1016', name: 'Kushal Shah', vehicle: 'EV Recharge', status: 'Approved', date: '2026-05-14', salesman: 'Siddharth M.', team: 'Beta', department: 'insurance',
+    insuranceDetails: {
+      insurer: 'ICICI Lombard',
+      policyType: 'Zero Depreciation',
+      premiumAmount: '55,000',
+      policyNumber: 'POL-ICICI-1102',
+      term: '1 Year'
+    }
+  },
 ];
 
 export const MOCK_USER = {

@@ -39,11 +39,7 @@ export const ROLE_CONFIGS = {
     { label: 'Document Vault', path: '/vault', icon: 'ShieldCheck' },
   ],
   [ROLES.INSURANCE_DEPARTMENT]: [
-    { label: 'Dashboard', path: '/dashboard', icon: 'LayoutDashboard' },
-    { label: 'Policy Issuance', path: '/policies', icon: 'FileEdit' },
-    { label: 'Premium Calculator', path: '/calculator', icon: 'Calculator' },
-    { label: 'Renewals', path: '/renewals', icon: 'RefreshCw' },
-    { label: 'Claims Desk', path: '/claims', icon: 'LifeBuoy' },
+    { label: 'Insurance Leads', path: '/dashboard', icon: 'ShieldAlert' },
   ],
   [ROLES.ACCESSORIES_DEPARTMENT]: [
     { label: 'Dashboard', path: '/dashboard', icon: 'LayoutDashboard' },
