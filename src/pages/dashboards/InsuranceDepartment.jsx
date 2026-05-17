@@ -21,7 +21,8 @@ const InsuranceDepartment = () => {
     policyType: 'Comprehensive',
     premiumAmount: '',
     policyNumber: '',
-    term: '1 Year'
+    term: '1 Year',
+    pdfName: ''
   });
 
   // Calculate statistics
@@ -43,6 +44,17 @@ const InsuranceDepartment = () => {
     return matchesFilter && matchesSearch;
   });
 
+  // Handle PDF upload simulator
+  const handlePdfUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setPolicyForm(prev => ({
+        ...prev,
+        pdfName: file.name
+      }));
+    }
+  };
+
   // Handle opening details / processing modal
   const handleOpenProcess = (lead) => {
     setSelectedLead(lead);
@@ -51,7 +63,8 @@ const InsuranceDepartment = () => {
       policyType: lead.insuranceDetails?.policyType || 'Comprehensive',
       premiumAmount: lead.insuranceDetails?.premiumAmount || '',
       policyNumber: lead.insuranceDetails?.policyNumber || '',
-      term: lead.insuranceDetails?.term || '1 Year'
+      term: lead.insuranceDetails?.term || '1 Year',
+      pdfName: lead.insuranceDetails?.pdfName || ''
     });
     setShowProcessModal(true);
   };
@@ -353,6 +366,65 @@ const InsuranceDepartment = () => {
                       value={policyForm.policyNumber}
                       onChange={(e) => setPolicyForm({ ...policyForm, policyNumber: e.target.value })}
                     />
+                  )}
+                </div>
+
+                <div className="detail-item full-width">
+                  <label>Policy PDF Document</label>
+                  {selectedLead.status === 'Approved' ? (
+                    policyForm.pdfName ? (
+                      <div className="pdf-display-card">
+                        <Icons.FileText className="pdf-icon" size={24} />
+                        <div className="pdf-info">
+                          <div className="pdf-name">{policyForm.pdfName}</div>
+                          <div className="pdf-size">2.4 MB • PDF Document</div>
+                        </div>
+                        <button
+                          type="button"
+                          className="pdf-action-btn download"
+                          onClick={() => {
+                            alert(`Downloading ${policyForm.pdfName}...`);
+                          }}
+                          title="Download PDF"
+                        >
+                          <Icons.Download size={18} />
+                        </button>
+                      </div>
+                    ) : (
+                      <span className="pdf-empty-text">No PDF Document Uploaded</span>
+                    )
+                  ) : (
+                    <div>
+                      {policyForm.pdfName ? (
+                        <div className="pdf-display-card edit-mode">
+                          <Icons.FileText className="pdf-icon" size={24} />
+                          <div className="pdf-info">
+                            <div className="pdf-name">{policyForm.pdfName}</div>
+                            <div className="pdf-size">2.4 MB • Ready to Upload</div>
+                          </div>
+                          <button
+                            type="button"
+                            className="pdf-action-btn delete"
+                            onClick={() => setPolicyForm({ ...policyForm, pdfName: '' })}
+                            title="Remove PDF"
+                          >
+                            <Icons.Trash2 size={18} />
+                          </button>
+                        </div>
+                      ) : (
+                        <label className="pdf-upload-dropzone">
+                          <input
+                            type="file"
+                            accept="application/pdf"
+                            style={{ display: 'none' }}
+                            onChange={handlePdfUpload}
+                          />
+                          <Icons.UploadCloud size={28} className="upload-icon" />
+                          <span className="upload-title">Click to upload Policy PDF</span>
+                          <span className="upload-subtitle">Only PDF formats supported (Max 10MB)</span>
+                        </label>
+                      )}
+                    </div>
                   )}
                 </div>
               </div>
