@@ -1,10 +1,12 @@
 import React from 'react';
-import RoleDashboard from './RoleDashboard';
-import { ROLE_CONFIGS, ROLES } from '../../config/RoleConfig';
+import RTOMarketShare from '../../components/RTOMarketShare';
 
 const RTODepartment = () => {
-  const roleName = ROLES.RTO_DEPARTMENT;
-  return <RoleDashboard role={roleName} items={ROLE_CONFIGS[roleName] || []} />;
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+      <RTOMarketShare />
+    </div>
+  );
 };
 
 export default RTODepartment;

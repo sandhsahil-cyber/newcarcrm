@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import * as Icons from 'lucide-react';
 import './RoleDashboard.css';
 import './SalesManagerActive.css';
@@ -172,10 +173,6 @@ const grandActive = grandBookings + grandRTO;
 const SalesManager = () => {
   const [showActiveDeals, setShowActiveDeals] = useState(false);
   const [selectedTeam, setSelectedTeam] = useState(null); // null = overview
-  const [showBookingForm, setShowBookingForm] = useState(false);
-  const [bookingData, setBookingData] = useState({
-    name: '', phone: '', model: '', variant: '', color: '', price: '', paymentType: 'online'
-  });
 
   const VEHICLE_DATA = {
     models: ['SUV XC90', 'Sedan S60', 'EV Recharge', 'Compact C40'],
@@ -183,24 +180,6 @@ const SalesManager = () => {
     colors: ['Crystal White', 'Onyx Black', 'Denim Blue', 'Thunder Grey', 'Fusion Red'],
   };
 
-  const handleBookingChange = (e) =>
-    setBookingData({ ...bookingData, [e.target.name]: e.target.value });
-
-  const handleSubmitBooking = (e) => {
-    e.preventDefault();
-    if (!bookingData.name || !bookingData.phone || !bookingData.model) {
-      alert('Please fill all required details.');
-      return;
-    }
-    alert('Booking Confirmed!');
-    setShowBookingForm(false);
-    setBookingData({ name: '', phone: '', model: '', variant: '', color: '', price: '', paymentType: 'online' });
-  };
-
-  const handleShareBooking = () => {
-    const msg = `*New Car Booking*\n\nCustomer: ${bookingData.name}\nPhone: ${bookingData.phone}\nModel: ${bookingData.model}\nVariant: ${bookingData.variant}\nColor: ${bookingData.color}\nPrice: ₹${bookingData.price}\nPayment: ${bookingData.paymentType}\n\n_DealerGuard ERP_`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
-  };
 
   // Compute per-team totals
   const teamTotals = (team) => ({
@@ -351,9 +330,9 @@ const SalesManager = () => {
       </div>
 
       {/* ═══════════════════ Active Deals Modal ═══════════════════ */}
-      {showActiveDeals && (
-        <div className="modal-overlay animate-fade-in" onClick={() => { setShowActiveDeals(false); setSelectedTeam(null); }}>
-          <div className="booking-modal glass sm-active-modal" onClick={(e) => e.stopPropagation()}>
+      {showActiveDeals && createPortal(
+        <div className="modal-overlay sm-premium-overlay animate-fade-in" onClick={() => { setShowActiveDeals(false); setSelectedTeam(null); }}>
+          <div className="booking-modal sm-premium-modal sm-active-modal" onClick={(e) => e.stopPropagation()}>
 
             {/* Modal Header */}
             <div className="modal-header">
@@ -417,8 +396,8 @@ const SalesManager = () => {
                   return (
                     <div
                       key={team.id}
-                      className="sm-team-card glass"
-                      style={{ borderTop: `3px solid ${team.color}` }}
+                      className="sm-team-card premium-card"
+                      style={{ borderTop: `4px solid ${team.color}` }}
                       onClick={() => setSelectedTeam(team)}
                     >
                       <div className="sm-team-card-header">
@@ -486,8 +465,8 @@ const SalesManager = () => {
                 </div>
 
                 {/* Sales Executive table */}
-                <div className="leads-list glass" style={{ marginTop: '1.25rem' }}>
-                  <table className="dashboard-table">
+                <div className="leads-list premium-list" style={{ marginTop: '1.25rem' }}>
+                  <table className="dashboard-table premium-table">
                     <thead>
                       <tr>
                         <th>#</th>
@@ -541,80 +520,10 @@ const SalesManager = () => {
               </>
             )}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
-      {/* ═══════════════════ Booking Form Modal ═══════════════════ */}
-      {showBookingForm && (
-        <div className="modal-overlay animate-fade-in" onClick={() => setShowBookingForm(false)}>
-          <div className="booking-modal glass" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <div className="header-title">
-                <Icons.Car size={24} color="var(--accent)" />
-                <h2>New Booking Lead</h2>
-              </div>
-              <button className="close-btn" onClick={() => setShowBookingForm(false)}><Icons.X size={20} /></button>
-            </div>
-            <form className="booking-form">
-              <div className="form-grid">
-                <div className="form-group">
-                  <label>Customer Name</label>
-                  <input type="text" name="name" placeholder="Full Name" onChange={handleBookingChange} />
-                </div>
-                <div className="form-group">
-                  <label>Phone Number</label>
-                  <input type="text" name="phone" placeholder="+91 00000 00000" onChange={handleBookingChange} />
-                </div>
-                <div className="form-group">
-                  <label>Vehicle Model</label>
-                  <select name="model" onChange={handleBookingChange}>
-                    <option value="">Select Model</option>
-                    {VEHICLE_DATA.models.map(m => <option key={m} value={m}>{m}</option>)}
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>Variant</label>
-                  <select name="variant" onChange={handleBookingChange}>
-                    <option value="">Select Variant</option>
-                    {VEHICLE_DATA.variants.map(v => <option key={v} value={v}>{v}</option>)}
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>Color</label>
-                  <select name="color" onChange={handleBookingChange}>
-                    <option value="">Select Color</option>
-                    {VEHICLE_DATA.colors.map(c => <option key={c} value={c}>{c}</option>)}
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label>Final Price (On-Road)</label>
-                  <div className="input-with-prefix">
-                    <span>₹</span>
-                    <input type="number" name="price" placeholder="0.00" onChange={handleBookingChange} />
-                  </div>
-                </div>
-              </div>
-              <div className="payment-section">
-                <label className="section-label">Payment Method</label>
-                <div className="payment-toggle">
-                  <button type="button" className={bookingData.paymentType === 'online' ? 'active' : ''} onClick={() => setBookingData({ ...bookingData, paymentType: 'online' })}>
-                    <Icons.CreditCard size={16} /> Online
-                  </button>
-                  <button type="button" className={bookingData.paymentType === 'cash' ? 'active' : ''} onClick={() => setBookingData({ ...bookingData, paymentType: 'cash' })}>
-                    <Icons.Banknote size={16} /> Cash
-                  </button>
-                </div>
-              </div>
-              <div className="form-actions" style={{ marginTop: '1.5rem' }}>
-                <button type="button" className="btn-whatsapp" onClick={handleShareBooking}>
-                  <Icons.MessageSquare size={18} /> Share via WhatsApp
-                </button>
-                <button type="button" className="btn-submit" onClick={handleSubmitBooking}>Confirm Booking</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </>
   );
 };

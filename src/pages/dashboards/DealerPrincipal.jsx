@@ -1,10 +1,8 @@
 import React from 'react';
-import RoleDashboard from './RoleDashboard';
-import { ROLE_CONFIGS, ROLES } from '../../config/RoleConfig';
+import BrandCEODashboard from './BrandCEODashboard';
 
 const DealerPrincipal = () => {
-  const roleName = ROLES.DEALER_PRINCIPAL;
-  return <RoleDashboard role={roleName} items={ROLE_CONFIGS[roleName] || []} />;
+  return <BrandCEODashboard title="Owner Dashboard" isOwner={true} />;
 };
 
 export default DealerPrincipal;

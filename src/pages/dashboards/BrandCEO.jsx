@@ -1,10 +1,8 @@
 import React from 'react';
-import RoleDashboard from './RoleDashboard';
-import { ROLE_CONFIGS, ROLES } from '../../config/RoleConfig';
+import BrandCEODashboard from './BrandCEODashboard';
 
 const BrandCEO = () => {
-  const roleName = ROLES.BRAND_CEO;
-  return <RoleDashboard role={roleName} items={ROLE_CONFIGS[roleName] || []} />;
+  return <BrandCEODashboard title="Brand CEO Dashboard" />;
 };
 
 export default BrandCEO;

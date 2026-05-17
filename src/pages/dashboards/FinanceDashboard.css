@@ -646,6 +646,8 @@
   /* Modal Mobile Optimization */
   .modal-overlay {
     padding: 0;
+    backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.9) !important;
   }
 
   .finance-modal {

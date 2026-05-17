@@ -121,22 +121,41 @@
   padding: 2rem;
 }
 
-.content-header {
-  margin-bottom: 2rem;
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 1rem;
+  }
+  
+  .topbar-right {
+    gap: 0.75rem;
+  }
+
+  .user-meta {
+    display: none; /* Hide name on mobile to save space */
+  }
+
+  .user-profile-sm {
+    padding-left: 0.75rem;
+  }
+
+  .content-area {
+    padding: 1.25rem;
+  }
+
+  .sidebar-overlay {
+    backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker for contrast since blur is removed */
+  }
 }
 
-.content-header h1 {
-  font-size: 1.5rem;
-  margin-bottom: 0.25rem;
+@media (max-width: 480px) {
+  .topbar-right {
+    gap: 0.5rem;
+  }
+  
+  .notification-bell {
+    display: none; /* Hide notifications on very small screens if needed */
+  }
 }
 
-.content-header p {
-  color: var(--text-dim);
-  justify-content: center;
-  transition: all 0.2s;
-}
-
-.btn-icon:hover {
-  background: var(--bg-hover);
-  color: var(--text-bright);
-}

@@ -34,6 +34,30 @@ const RoleDashboard = ({ role, items }) => {
   const [editLeadData, setEditLeadData] = useState({
     name: '', phone: '', model: '', variant: '', color: '', price: ''
   });
+  const [pdiFormData, setPdiFormData] = useState({
+    customerName: 'SAPARA VALJIBHAI PARBATBHAI',
+    vehicleModel: 'PUNCH SMART',
+    colour: 'COORGE CLOUD',
+    fuelType: 'Cng',
+    chasisNumber: '69808',
+    registerNo: '',
+    invoiceNo: '',
+    accessories: 'yes',
+    deliveryDate: '2026-05-16',
+    deliveryTime: '15:00',
+    tlName: 'RAMDEVSINH',
+    caName: 'GAUTAM SOLANKI',
+    deliveryLocation: 'mavdi SHOWROOM',
+    remark: ''
+  });
+
+  const [leadSearch, setLeadSearch] = useState('');
+
+  const filteredActiveLeads = recentLeads.filter(lead => 
+    lead.name.toLowerCase().includes(leadSearch.toLowerCase()) || 
+    (lead.phone && lead.phone.includes(leadSearch)) ||
+    lead.id.toLowerCase().includes(leadSearch.toLowerCase())
+  );
 
   const handleLeadClick = (lead) => {
     setSelectedLead(lead);
@@ -117,7 +141,7 @@ const RoleDashboard = ({ role, items }) => {
     colors: ['Crystal White', 'Onyx Black', 'Denim Blue', 'Thunder Grey', 'Fusion Red']
   };
 
-  const DEPARTMENTS = ['RTO', 'Insurance', 'Accessories', 'Accounts', 'Finance'];
+  const DEPARTMENTS = ['RTO', 'Insurance', 'Accessories', 'Accounts', 'Finance', 'PDI'];
 
   return (
     <>
@@ -173,6 +197,7 @@ const RoleDashboard = ({ role, items }) => {
                   <div className="breakdown-item"><span>Accessories</span> <strong>8</strong></div>
                   <div className="breakdown-item"><span>Accounts</span> <strong>5</strong></div>
                   <div className="breakdown-item"><span>Finance</span> <strong>8</strong></div>
+                  <div className="breakdown-item"><span>PDI</span> <strong>4</strong></div>
                 </div>
               )}
             </div>
@@ -205,16 +230,16 @@ const RoleDashboard = ({ role, items }) => {
                   <tbody>
                     {recentLeads.map(lead => (
                       <tr key={lead.id} onClick={() => handleLeadClick(lead)} className="clickable-row">
-                        <td className="booking-id">{lead.id}</td>
-                        <td>
+                        <td className="booking-id" data-label="Booking ID">{lead.id}</td>
+                        <td data-label="Customer">
                           <div className="customer-cell">
                             <div className="avatar-sm">{lead.name.charAt(0)}</div>
                             <span>{lead.name}</span>
                           </div>
                         </td>
-                        <td>{lead.model}</td>
-                        <td className="amount-cell">₹{lead.price}</td>
-                        <td><span className={`status-tag ${lead.status.toLowerCase().replace(' ', '-')}`}>{lead.status}</span></td>
+                        <td data-label="Model">{lead.model}</td>
+                        <td className="amount-cell" data-label="Amount">₹{lead.price}</td>
+                        <td data-label="Status"><span className={`status-tag ${lead.status.toLowerCase().replace(' ', '-')}`}>{lead.status}</span></td>
                       </tr>
                     ))}
                   </tbody>
@@ -441,6 +466,100 @@ const RoleDashboard = ({ role, items }) => {
                     </div>
                   )}
 
+                  {targetDept === 'Insurance' && (
+                    <div className="finance-options-box animate-fade-in insurance-variant">
+                      <div className="form-group">
+                        <label>Insurance Pending Target & Processing</label>
+                        <div className="insurance-info-alert">
+                          <Icons.Info size={16} />
+                          <span>Ensure all previous department approvals are uploaded before sending to Insurance.</span>
+                        </div>
+                      </div>
+                      
+                      <div className="form-group mt-3">
+                        <label>Policy Selection</label>
+                        <select className="glass-input">
+                          <option>Comprehensive Policy (Standard)</option>
+                          <option>Zero Depreciation (Premium)</option>
+                          <option>Third Party Only</option>
+                          <option>Bundled 3-Year Plan</option>
+                        </select>
+                      </div>
+                    </div>
+                  )}
+
+                  {targetDept === 'PDI' && (
+                    <div className="finance-options-box animate-fade-in pdi-variant">
+                      <div className="form-section-title">PDI Inspection Details</div>
+                      <div className="pdi-form-grid">
+                        <div className="form-group">
+                          <label>Customer Name</label>
+                          <input type="text" value={pdiFormData.customerName} onChange={(e) => setPdiFormData({...pdiFormData, customerName: e.target.value})} />
+                        </div>
+                        <div className="form-group">
+                          <label>Vehicle Model</label>
+                          <input type="text" value={pdiFormData.vehicleModel} onChange={(e) => setPdiFormData({...pdiFormData, vehicleModel: e.target.value})} />
+                        </div>
+                        <div className="form-group">
+                          <label>Colour</label>
+                          <input type="text" value={pdiFormData.colour} onChange={(e) => setPdiFormData({...pdiFormData, colour: e.target.value})} />
+                        </div>
+                        <div className="form-group">
+                          <label>Fuel Type</label>
+                          <select value={pdiFormData.fuelType} onChange={(e) => setPdiFormData({...pdiFormData, fuelType: e.target.value})}>
+                            <option value="Cng">Cng</option>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="EV">EV</option>
+                          </select>
+                        </div>
+                        <div className="form-group">
+                          <label>Chasis Number</label>
+                          <input type="text" value={pdiFormData.chasisNumber} onChange={(e) => setPdiFormData({...pdiFormData, chasisNumber: e.target.value})} />
+                        </div>
+                        <div className="form-group">
+                          <label>Register No</label>
+                          <input type="text" value={pdiFormData.registerNo} onChange={(e) => setPdiFormData({...pdiFormData, registerNo: e.target.value})} />
+                        </div>
+                        <div className="form-group">
+                          <label>Invoice No</label>
+                          <input type="text" value={pdiFormData.invoiceNo} onChange={(e) => setPdiFormData({...pdiFormData, invoiceNo: e.target.value})} />
+                        </div>
+                        <div className="form-group">
+                          <label>Accessories</label>
+                          <select value={pdiFormData.accessories} onChange={(e) => setPdiFormData({...pdiFormData, accessories: e.target.value})}>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                          </select>
+                        </div>
+                        <div className="form-group">
+                          <label>Delivery Date</label>
+                          <input type="date" value={pdiFormData.deliveryDate} onChange={(e) => setPdiFormData({...pdiFormData, deliveryDate: e.target.value})} />
+                        </div>
+                        <div className="form-group">
+                          <label>Delivery Time</label>
+                          <input type="time" value={pdiFormData.deliveryTime} onChange={(e) => setPdiFormData({...pdiFormData, deliveryTime: e.target.value})} />
+                        </div>
+                        <div className="form-group">
+                          <label>TL Name</label>
+                          <input type="text" value={pdiFormData.tlName} onChange={(e) => setPdiFormData({...pdiFormData, tlName: e.target.value})} />
+                        </div>
+                        <div className="form-group">
+                          <label>CA Name</label>
+                          <input type="text" value={pdiFormData.caName} onChange={(e) => setPdiFormData({...pdiFormData, caName: e.target.value})} />
+                        </div>
+                        <div className="form-group full-width">
+                          <label>Delivery Location</label>
+                          <input type="text" value={pdiFormData.deliveryLocation} onChange={(e) => setPdiFormData({...pdiFormData, deliveryLocation: e.target.value})} />
+                        </div>
+                        <div className="form-group full-width">
+                          <label>Remark</label>
+                          <textarea rows="2" value={pdiFormData.remark} onChange={(e) => setPdiFormData({...pdiFormData, remark: e.target.value})} placeholder="Any special instructions..."></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="form-actions mt-4">
                     <button type="button" className="btn-submit" onClick={handleSendToDept}>
                       Confirm & Send to {targetDept || '...'}
@@ -569,7 +688,7 @@ const RoleDashboard = ({ role, items }) => {
       {showAllActiveLeads && (
         <div className="modal-overlay animate-fade-in" onClick={() => setShowAllActiveLeads(false)}>
           <div className="booking-modal glass wide" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
+            <div className="modal-header active-leads-header">
               <div className="header-title">
                 <Icons.List size={24} color="var(--accent)" />
                 <h2>All Active Leads</h2>
@@ -602,8 +721,8 @@ const RoleDashboard = ({ role, items }) => {
                 <tbody>
                   {filteredActiveLeads.map(lead => (
                     <tr key={lead.id}>
-                      <td className="booking-id">{lead.id}</td>
-                      <td>
+                      <td className="booking-id" data-label="Booking ID">{lead.id}</td>
+                      <td data-label="Customer">
                         <div className="customer-cell">
                           <div className="avatar-sm">{lead.name.charAt(0)}</div>
                           <div className="customer-info-cell">
@@ -612,9 +731,9 @@ const RoleDashboard = ({ role, items }) => {
                           </div>
                         </div>
                       </td>
-                      <td>{lead.model}</td>
-                      <td className="amount-cell">₹{lead.price}</td>
-                      <td><span className={`status-tag ${lead.status.toLowerCase().replace(' ', '-')}`}>{lead.status}</span></td>
+                      <td data-label="Model">{lead.model}</td>
+                      <td className="amount-cell" data-label="Amount">₹{lead.price}</td>
+                      <td data-label="Status"><span className={`status-tag ${lead.status.toLowerCase().replace(' ', '-')}`}>{lead.status}</span></td>
                     </tr>
                   ))}
                 </tbody>

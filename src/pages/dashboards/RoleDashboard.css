@@ -216,6 +216,13 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .modal-header h2 {
@@ -223,6 +230,7 @@
   margin: 0;
   color: var(--text-bright);
 }
+
 
 .close-btn {
   background: transparent;
@@ -590,6 +598,49 @@
   border-left: 4px solid var(--accent);
 }
 
+.finance-options-box.insurance-variant {
+  border-left-color: #2196f3;
+  background: rgba(33, 150, 243, 0.05);
+}
+
+.insurance-info-alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: rgba(33, 150, 243, 0.1);
+  border-radius: 8px;
+  color: #2196f3;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.glass-input {
+  background: var(--bg-main) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-bright) !important;
+}
+
+.finance-options-box.pdi-variant {
+  border-left-color: #4caf50;
+  background: rgba(76, 175, 80, 0.03);
+}
+
+.pdi-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.pdi-form-grid input, .pdi-form-grid select, .pdi-form-grid textarea {
+  font-size: 0.8rem !important;
+  padding: 8px 10px !important;
+}
+
 .option-group {
   display: flex;
   gap: 1.5rem;
@@ -866,6 +917,33 @@
   .dashboard-table td:last-child { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
   .customer-cell { justify-content: flex-end; }
   .dashboard-table td::before { content: attr(data-label); float: left; font-weight: 600; color: var(--text-dim); font-size: 0.7rem; text-transform: uppercase; }
+  
+  .modal-overlay {
+    backdrop-filter: none !important;
+    background: rgba(0, 0, 0, 0.85) !important;
+    padding: 1rem 0.5rem;
+  }
+
+  .glass {
+    backdrop-filter: none !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+  }
+  
+  .active-leads-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .active-leads-header .modal-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .active-leads-header .search-box-mini {
+    flex: 1;
+    min-width: 0; /* allows shrinking */
+  }
 }
 
 @media (max-width: 600px) {
@@ -875,4 +953,6 @@
   .quick-actions-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
 }

@@ -107,6 +107,10 @@
 	.content {
 		margin-left: 0 !important;
 	}
+	.overlay {
+		backdrop-filter: none !important;
+		background: rgba(0, 0, 0, 0.7) !important;
+	}
 }
 
 

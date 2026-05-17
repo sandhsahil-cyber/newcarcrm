@@ -42,7 +42,7 @@ const Sidebar = ({ role, onLogout, isOpen, onClose }) => {
         </nav>
       </div>
 
-      {role !== 'Sales Manager' && (
+      {role !== 'Sales Manager' && role !== 'Accessories Department' && role !== 'RTO Department' && role !== 'Brand CEO' && role !== 'Dealer Principal (Owner)' && (
         <>
           <div className="nav-section">
             <small className="nav-label">DOCUMENT STORAGE</small>
