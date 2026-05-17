@@ -418,6 +418,16 @@
   border-color: var(--accent);
 }
 
+.insurance-section-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  display: block;
+}
+
 /* Responsive Overrides */
 @media (max-width: 768px) {
   .insurance-dashboard {

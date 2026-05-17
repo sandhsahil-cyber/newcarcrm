@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { PIPELINE_LEADS } from '../../data/PipelineData';
 import * as Icons from 'lucide-react';
 import './InsuranceDepartment.css';
@@ -234,7 +235,7 @@ const InsuranceDepartment = () => {
       </div>
 
       {/* Detailed Policy Processing Modal */}
-      {showProcessModal && selectedLead && (
+      {showProcessModal && selectedLead && createPortal(
         <div className="insurance-modal-overlay" onClick={() => { setShowProcessModal(false); setSelectedLead(null); }}>
           <div className="insurance-modal animate-scale-up" onClick={(e) => e.stopPropagation()}>
             <div className="insurance-modal-header">
@@ -272,7 +273,7 @@ const InsuranceDepartment = () => {
 
                 {/* Separator Heading */}
                 <div className="detail-item full-width" style={{ marginTop: '1rem', borderTop: '1px solid #1e293b', paddingTop: '1.25rem' }}>
-                  <h3 className="text-sm font-bold text-white uppercase tracking-wider">Policy Details</h3>
+                  <h3 className="insurance-section-title">Policy Details</h3>
                 </div>
 
                 {/* Form Inputs for Policy Details */}
@@ -384,7 +385,8 @@ const InsuranceDepartment = () => {
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
