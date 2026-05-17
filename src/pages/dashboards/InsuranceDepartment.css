@@ -533,16 +533,18 @@
     width: 100%;
     justify-content: center;
   }
+
+  .insurance-detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .detail-item.full-width {
+    grid-column: span 1 !important;
+  }
 }
 
 @media (max-width: 480px) {
   .insurance-stats {
     grid-template-columns: 1fr;
-  }
-  .insurance-detail-grid {
-    grid-template-columns: 1fr;
-  }
-  .detail-item.full-width {
-    grid-column: span 1;
   }
 }
