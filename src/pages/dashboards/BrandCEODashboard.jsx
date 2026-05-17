@@ -509,26 +509,26 @@ const AgingDetailModal = ({ onClose }) => {
               <tbody>
                 {agedUnits.map((unit) => (
                   <tr key={unit.chassis}>
-                    <td>
+                    <td data-label="Model & Variant">
                       <div className="unit-model-info">
                         <strong>{unit.model}</strong>
                         <span>{unit.variant}</span>
                       </div>
                     </td>
-                    <td><code className="chassis-code">{unit.chassis}</code></td>
-                    <td>
+                    <td data-label="Chassis No."><code className="chassis-code">{unit.chassis}</code></td>
+                    <td data-label="Age (Days)">
                       <span className={`age-badge ${unit.age > 110 ? 'critical' : 'warning'}`}>
                         {unit.age} Days
                       </span>
                     </td>
-                    <td>{unit.branch}</td>
-                    <td>
+                    <td data-label="Branch">{unit.branch}</td>
+                    <td data-label="Color">
                       <div className="color-preview">
                         <span className="color-dot" style={{ background: unit.color.toLowerCase().replace(' ', '') }}></span>
                         {unit.color}
                       </div>
                     </td>
-                    <td>
+                    <td data-label="Action">
                       <button className="action-btn-small">Request Liquidation</button>
                     </td>
                   </tr>

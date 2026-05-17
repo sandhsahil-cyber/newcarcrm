@@ -94,17 +94,17 @@ const Inventory = () => {
           <tbody>
             {filteredInventory.map(item => (
               <tr key={item.id}>
-                <td className="sku-cell"><strong>{item.id}</strong></td>
-                <td>{item.name}</td>
-                <td><span className="category-badge">{item.category}</span></td>
-                <td>{item.stock} {item.unit}</td>
-                <td>₹ {item.price.toLocaleString('en-IN')}</td>
-                <td>
+                <td className="sku-cell" data-label="SKU ID"><strong>{item.id}</strong></td>
+                <td data-label="Item Name">{item.name}</td>
+                <td data-label="Category"><span className="category-badge">{item.category}</span></td>
+                <td data-label="Current Stock">{item.stock} {item.unit}</td>
+                <td data-label="Unit Price">₹ {item.price.toLocaleString('en-IN')}</td>
+                <td data-label="Status">
                   <span className={`stock-status ${item.status.toLowerCase().replace(/ /g, '-')}`}>
                     {item.status}
                   </span>
                 </td>
-                <td className="actions-cell">
+                <td className="actions-cell" data-label="Actions">
                   <button className="icon-btn" title="Edit Item"><Icons.Edit3 size={16} /></button>
                   <button className="icon-btn" title="View History"><Icons.History size={16} /></button>
                   <button className="icon-btn delete" title="Delete"><Icons.Trash2 size={16} /></button>

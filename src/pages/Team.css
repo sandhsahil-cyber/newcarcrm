@@ -216,4 +216,32 @@
     align-items: flex-start;
     gap: 1.5rem;
   }
+  
+  .salesman-table thead { display: none; }
+  .salesman-table tr { 
+    display: block; 
+    border-bottom: 1px solid var(--border); 
+    padding: 1rem 0; 
+  }
+  .salesman-table td { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0.5rem 1rem; 
+    border: none; 
+    text-align: right; 
+  }
+  .salesman-table td::before { 
+    content: attr(data-label); 
+    font-weight: 600; 
+    color: var(--text-dim); 
+    font-size: 0.75rem; 
+    text-transform: uppercase; 
+    text-align: left;
+  }
+  
+  .salesman-info {
+    justify-content: flex-end;
+  }
 }
+

@@ -37,20 +37,20 @@ const Team = () => {
           <tbody>
             {salesmanData.map(s => (
               <tr key={s.name}>
-                <td>
+                <td data-label="Salesman">
                   <div className="salesman-info">
                     <div className="avatar-sm">{s.name.charAt(0)}</div>
                     <span>{s.name}</span>
                   </div>
                 </td>
-                <td><span className="team-tag">{s.team}</span></td>
-                <td><strong>{s.leads}</strong></td>
-                <td>{s.conversion}</td>
-                <td>
+                <td data-label="Team"><span className="team-tag">{s.team}</span></td>
+                <td data-label="Current Leads"><strong>{s.leads}</strong></td>
+                <td data-label="Conv. Rate">{s.conversion}</td>
+                <td data-label="Status">
                   <span className={`status-dot ${s.status.toLowerCase().replace(' ', '-')}`}></span>
                   {s.status}
                 </td>
-                <td><button className="view-details-btn">View Pipeline</button></td>
+                <td data-label="Action"><button className="view-details-btn">View Pipeline</button></td>
               </tr>
             ))}
           </tbody>

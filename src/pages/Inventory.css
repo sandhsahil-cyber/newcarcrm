@@ -205,4 +205,45 @@
   .summary-card {
     flex: 1;
   }
+  
+  .inventory-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-box {
+    max-width: 100%;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .action-buttons button {
+    justify-content: center;
+  }
+
+  .inventory-table thead { display: none; }
+  .inventory-table tr { 
+    display: block; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+    padding: 1rem 0; 
+  }
+  .inventory-table td { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0.5rem 1rem; 
+    border: none; 
+    text-align: right; 
+  }
+  .inventory-table td::before { 
+    content: attr(data-label); 
+    font-weight: 600; 
+    color: var(--text-secondary); 
+    font-size: 0.75rem; 
+    text-transform: uppercase; 
+    text-align: left;
+  }
 }
+

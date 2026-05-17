@@ -32,10 +32,10 @@ const DashboardLayout = ({ children, role, onLogout }) => {
             </div>
             
             <div className="user-profile-sm">
-              <img src="https://ui-avatars.com/api/?name=HITESHBHAI&background=E66239&color=fff" alt="User" />
+              <img src={`https://ui-avatars.com/api/?name=${encodeURIComponent(role)}&background=E66239&color=fff`} alt={role} />
               <div className="user-meta">
-                <span className="user-name">HITESHBHAI</span>
-                <span className="user-role">@{role.split(' ')[0].toLowerCase()}</span>
+                <span className="user-name">{role}</span>
+                <span className="user-role">DealerGuard User</span>
               </div>
             </div>
           </div>

@@ -411,3 +411,49 @@ input:checked + .slider:before {
   .dealsheet-main-grid { grid-template-columns: 1fr; }
   .form-grid-4 { grid-template-columns: 1fr 1fr; }
 }
+
+@media (max-width: 768px) {
+  .dealsheet-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-actions-main {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .form-grid-4 { grid-template-columns: 1fr; }
+  .payment-grid { grid-template-columns: 1fr; }
+  
+  .row-input {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .row-input input {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .row-input-check {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .row-input-check .readonly-input {
+    width: 100% !important;
+    text-align: left !important;
+    padding-left: 0;
+  }
+  
+  .signature-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .deal-sheet-container { padding: 1rem; }
+  .section-card { padding: 1.25rem; }
+  .customer-info-section { padding: 1.25rem; }
+}
+

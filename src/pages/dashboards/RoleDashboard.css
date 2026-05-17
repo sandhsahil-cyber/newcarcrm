@@ -950,9 +950,13 @@
   .form-grid {
     grid-template-columns: 1fr;
   }
+  .pdi-form-grid {
+    grid-template-columns: 1fr;
+  }
   .quick-actions-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
 
 }
